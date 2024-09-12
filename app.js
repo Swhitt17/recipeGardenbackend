@@ -1,5 +1,7 @@
 const express = require ("express");
 const cors = require("cors");
+const axios = require("axios")
+const session = require("express-session")
 const {NotFoundError} = require("./expressError");
 const {authenticateJWT} = require("./middleware/auth");
 const authRoutes = require("./routes/auth");
@@ -14,6 +16,7 @@ const morgan = require("morgan");
 
 const app = express();
 
+app.use(session({secret:"your-secret-key", resave:false, saveUninitialized: true}))
 
 
 app.use(cors());
@@ -22,7 +25,6 @@ app.use(morgan("tiny"));
 app.use(authenticateJWT);
 
 
-  
 
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);

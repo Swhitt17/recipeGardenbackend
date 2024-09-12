@@ -2,7 +2,7 @@
 
 /** Routes for authentication */
 const jsonschema = require("jsonschema");
-// const session = require("express-session")
+const session = require("express-session")
 const User = require("../models/user");
 const express = require("express");
 const {createToken} = require("../helpers/token");
@@ -12,7 +12,6 @@ const {BadRequestError} = require("../expressError");
 const {API_KEY} = require("../config");
 const { ensureLoggedIn } = require("../middleware/auth");
 const axios = require("axios");
-const session = require("express-session");
 const db = require("../db");
 
 
