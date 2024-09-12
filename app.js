@@ -1,7 +1,5 @@
 const express = require ("express");
 const cors = require("cors");
-const axios = require("axios")
-const session = require("express-session")
 const {NotFoundError} = require("./expressError");
 const {authenticateJWT} = require("./middleware/auth");
 const authRoutes = require("./routes/auth");
@@ -16,7 +14,6 @@ const morgan = require("morgan");
 
 const app = express();
 
-app.use(session({secret:"your-secret-key", resave:false, saveUninitialized: true}))
 
 
 app.use(cors());
@@ -24,24 +21,6 @@ app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
 
-// app.post('/register', (req, res) => { 
-//     const { username,firstName, lastName, email } = req.body; 
-//      req.session.user = { username, email, firstName, lastName }; res.send('Registration successful!'); 
-//     });
-// app.post('/spoonacular-connect', async (req, res) => {
-//         const user = req.session.user; 
-//         if (!user) { return res.status(401).send('User not registered or session expired'); } 
-//         const spoonacularApiKey = "f2c5d0c51e4c4a7ea7703510f392eb82"; 
-//         const spoonacularApiUrl = `https://api.spoonacular.com/users/connect?apiKey=${spoonacularApiKey}&username=${user.username}&email=${user.email}`;       
-//             const response =  await axios.post (`https://api.spoonacular.com/users/connect?apiKey=${spoonacularApiKey}`,
-//                {username: req.session.username,
-//                 firstName: req.session.firstName,
-//                 lastName: req.session.lastName,
-//                 email: req.session.email
-//                });
-//                console.log(response, "response");
-//          res.send(`Spoonacular connect request sent for ${user.username}`); 
-//         });
 
   
 

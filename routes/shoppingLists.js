@@ -3,7 +3,7 @@
 
 const axios = require("axios");
 const express = require("express");
-const {ensureCorrectUserOrAdmin} = require("../middleware/auth");
+// const {ensureCorrectUserOrAdmin} = require("../middleware/auth");
 const {API_KEY} = require("../config")
 const User = require("../models/user")
 
