@@ -6,7 +6,7 @@ const SECRET_KEY = process.env.SECRET_KEY || "secret-dev";
 
 const API_KEY = "f2c5d0c51e4c4a7ea7703510f392eb82";
 
-const PORT = +process.env.PORT || 3001;
+const PORT = +process.env.PORT || "https://recipegardenbackend.onrender.com";
 
 //Use dev database, testing database, or via env, production database
 function getDatabaseUri(){
