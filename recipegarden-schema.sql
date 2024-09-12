@@ -7,7 +7,7 @@ CREATE TABLE users(
         CHECK (position('@' IN email) > 1),
     sp_username TEXT,
     sp_password TEXT,
-    user_hash TEXT 
+    user_hash TEXT,
     is_admin BOOLEAN NOT NULL DEFAULT FALSE
 );
 
